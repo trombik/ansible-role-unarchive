@@ -3,13 +3,13 @@ require "serverspec"
 
 packages = case os[:family]
            when "freebsd"
-             %w[ unzip gtar ]
+             %w[unzip gtar]
            when "openbsd"
-             %w[ unzip gtar ]
+             %w[unzip gtar]
            when "ubuntu"
-             %w[ unzip tar ]
+             %w[unzip tar]
            when "redhat"
-             %w[ unzip tar ]
+             %w[unzip tar]
            end
 
 packages.each do |p|
