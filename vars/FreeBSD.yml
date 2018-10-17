@@ -1,2 +1,3 @@
-__unarchive_db_dir: /var/db/unarchive
-__unarchive_conf_dir: /usr/local/etc/unarchive
+__unarchive_packages:
+  - archivers/unzip
+  - archivers/gtar

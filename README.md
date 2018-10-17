@@ -1,6 +1,9 @@
-# ansible-role-unarchive
+# Ansible Role unarchive
 
-A brief description of the role goes here.
+[unarchive module](https://docs.ansible.com/ansible/latest/modules/unarchive_module.html)
+of `ansible` requires `unzip` and `gtar`. Default installation often lacks
+either or both of them. This role installs required packages. After simply
+including the role, `unarchive` module just works.
 
 # Requirements
 
@@ -8,9 +11,33 @@ None
 
 # Role Variables
 
-| variable | description | default |
+| Variable | Description | Default |
 |----------|-------------|---------|
+| `unarchive_packages` | | `{{ __unarchive_packages }}` |
 
+## Debian
+
+| Variable | Default |
+|----------|---------|
+| `__unarchive_packages` | `["unzip"]` |
+
+## FreeBSD
+
+| Variable | Default |
+|----------|---------|
+| `__unarchive_packages` | `["archivers/unzip", "archivers/gtar"]` |
+
+## OpenBSD
+
+| Variable | Default |
+|----------|---------|
+| `__unarchive_packages` | `["gtar", "unzip--"]` |
+
+## RedHat
+
+| Variable | Default |
+|----------|---------|
+| `__unarchive_packages` | `["unzip"]` |
 
 # Dependencies
 
@@ -19,6 +46,9 @@ None
 # Example Playbook
 
 ```yaml
+- hosts: localhost
+  roles:
+    - ansible-role-unarchive
 ```
 
 # License

@@ -3,35 +3,8 @@
 
 - include_vars: "{{ ansible_os_family }}.yml"
 
-- include: "install-{{ ansible_os_family }}.yml"
-
-- name: Create log directory
-  file:
-    path: "{{ unarchive_log_dir }}"
-    mode: 0755
-    owner: "{{ unarchive_user }}"
-    group: "{{ unarchive_group }}"
-    state: directory
-  notify: Restart unarchive
-
-- name: Create db directory
-  file:
-    path: "{{ unarchive_db_dir }}"
-    mode: 0755
-    owner: "{{ unarchive_user }}"
-    group: "{{ unarchive_group }}"
-    state: directory
-  notify: Restart unarchive
-
-- name: Create unarchive.conf
-  template:
-    src: unarchive.conf.j2
-    dest: "{{ unarchive_conf_file }}"
-    validate: echo %s
-  notify: Restart unarchive
-
-- name: Start unarchive
-  service:
-    name: "{{ unarchive_service }}"
-    enabled: true
-    state: started
+- name: Install unarchivers
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ unarchive_packages }}"
