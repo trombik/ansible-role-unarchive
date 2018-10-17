@@ -1,0 +1,6 @@
+---
+
+- name: Restart unarchive
+  service:
+    name: unarchive
+    state: restarted

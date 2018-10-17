@@ -1,0 +1,8 @@
+unarchive_user: unarchive
+unarchive_group: unarchive
+unarchive_log_dir: /var/log/unarchive
+unarchive_db_dir: "{{ __unarchive_db_dir }}"
+unarchive_service: unarchive
+unarchive_conf_dir: "{{ __unarchive_conf_dir }}"
+unarchive_conf_file: "{{ __unarchive_conf_dir }}/unarchive.conf"
+unarchive_flags: ""

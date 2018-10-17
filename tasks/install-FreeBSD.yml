@@ -1,0 +1,6 @@
+---
+
+- name: Install unarchive
+  pkgng:
+    name: unarchive
+    state: present
