@@ -13,7 +13,7 @@ None
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `unarchive_packages` | | `{{ __unarchive_packages }}` |
+| `unarchive_packages` | List of packages to install | `{{ __unarchive_packages }}` |
 
 ## Debian
 
